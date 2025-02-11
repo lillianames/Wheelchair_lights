@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheelchair Light Control</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.min.js"></script>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            width: 150px; /* Set a consistent button width */
+            height: 150px; /* Set a consistent button height */
+        }
+        .active {
+            background-color: #4CAF50; /* Green highlight for active buttons */
+            color: white;
+        }
+        #solid_red { background-color: red; }
+        #blinking_orange { background-color: orange; }
+        #right_turn { background-color: green; }
+        #left_turn { background-color: blue; }
+        #rainbow { background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); }
+        #fireworks { background-color: purple; }
+        #increase_brightness { background-color: lightgray; }
+        #decrease_brightness { background-color: darkgray; }
+
+        /* Flexbox for 2-column layout */
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .button-container button {
+            margin: 10px;
+        }
+
+        /* Smaller font for the header */
+        h1 {
+            font-size: 18px; /* Smaller font size */
+            margin-bottom: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wheelchair Light Control</h1>
+    
+    <!-- Brightness Control (Top Row) -->
+    <div class="button-container">
+        <button id="increase_brightness" onclick="changeBrightness('increase')">+</button>
+        <button id="decrease_brightness" onclick="changeBrightness('decrease')">-</button>
+    </div>
+
+    <!-- Pattern Buttons (2 Columns) -->
+    <div class="button-container">
+        <button id="solid_red" onclick="sendCommand('solid_red')"></button>
+        <button id="blinking_orange" onclick="sendCommand('blinking_orange')"></button>
+        <button id="left_turn" onclick="sendCommand('left_turn')"></button>
+        <button id="right_turn" onclick="sendCommand('right_turn')"></button>
+        <button id="rainbow" onclick="sendCommand('rainbow')"></button>
+        <button id="fireworks" onclick="sendCommand('fireworks')"></button> <!-- Fireworks Button -->
+    </div>
+
+    <script>
+        var socket = io();
+        var brightnessLevels = [0, 50, 100, 175, 250];
+        var currentBrightnessIndex = 2; // Default to 100
+
+        // Send command to the server when a pattern button is pressed
+        function sendCommand(command) {
+            socket.emit(command);
+        }
+
+        // Change the brightness level
+        function changeBrightness(action) {
+            if (action === 'increase' && currentBrightnessIndex < brightnessLevels.length - 1) {
+                currentBrightnessIndex++;
+            } else if (action === 'decrease' && currentBrightnessIndex > 0) {
+                currentBrightnessIndex--;
+            }
+            var newBrightness = brightnessLevels[currentBrightnessIndex];
+            socket.emit('set_brightness', { brightness: newBrightness });
+        }
+
+        // Listen for brightness updates from the server
+        socket.on('brightness_update', function(data) {
+            document.getElementById('brightness_value').innerText = data.brightness;
+        });
+    </script>
+</body>
+</html>
+
