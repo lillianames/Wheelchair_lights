@@ -10,8 +10,10 @@ battery pack
 
 Assembly:
 
-Set up a hotspot on a mobile device with a simple network name and password. 
-Unzip the img folder, if using a raspberry pi zero 2 wh use the img found in Wheelchairlights2
+Set up a hotspot on a mobile device with a simple network name and password.
+https://mega.nz/file/jCJCXb6D#yqctBnDldJoIEpaP_x5YnqObicx_L_UAUbxd3iVq6C8 is the location of the wheelchair_lights.img for raspberry pi zero
+https://mega.nz/file/vfwjQJyT#CLdrzL3r-ozLoPqEql9SVEQoDTOwOZHmXN2aEqFzBxw is the location of the Wheelchairlights2.img for raspberry pi zero 2
+Unzip the img folder
 
 Use raspberry pi imager software to add the custom OS using the file wheelchair_lights.img, set the Raspberry pi device to Raspberry pi zero (not 2 for this version) Before writing the img to the sd card, edit settings, setup a password for the username, configure the SSID with the network name of the hotspot, click show password and enter the network password. Under services, enable SSH and use password authentication and click yes to apply settings. 
 
