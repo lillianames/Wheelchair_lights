@@ -1,5 +1,5 @@
 # Wheelchair_lights  
-Wheelchair_lights that mount to the back of the wheelchair seat.
+Wheelchair lights that mount to the back of the wheelchair seat.
 
 ## Hardware list:
 - Waveshare 4x8 RGB LED Hat
