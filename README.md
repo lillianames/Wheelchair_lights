@@ -11,6 +11,8 @@ battery pack
 Assembly:
 
 Set up a hotspot on a mobile device with a simple network name and password.
+
+Download the img file to setup on a sd card for the raspberrry pi:
 https://mega.nz/file/jCJCXb6D#yqctBnDldJoIEpaP_x5YnqObicx_L_UAUbxd3iVq6C8 is the location of the wheelchair_lights.img for raspberry pi zero
 https://mega.nz/file/vfwjQJyT#CLdrzL3r-ozLoPqEql9SVEQoDTOwOZHmXN2aEqFzBxw is the location of the Wheelchairlights2.img for raspberry pi zero 2
 Unzip the img folder
