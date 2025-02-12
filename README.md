@@ -11,6 +11,7 @@ battery pack
 Assembly:
 
 Set up a hotspot on a mobile device with a simple network name and password. 
+Unzip the img folder
 
 Use raspberry pi imager software to add the custom OS using the file wheelchair_lights.img, set the Raspberry pi device to Raspberry pi zero (not 2 for this version) Before writing the img to the sd card, edit settings, setup a password for the username, configure the SSID with the network name of the hotspot, click show password and enter the network password. Under services, enable SSH and use password authentication and click yes to apply settings. 
 
