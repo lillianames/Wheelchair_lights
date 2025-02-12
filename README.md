@@ -1,32 +1,62 @@
-# Wheelchair_lights
-Wheelchair_lights that mount to the back of the wheelchair seat
+# Wheelchair_lights  
+Wheelchair_lights that mount to the back of the wheelchair seat.
 
-Hardware list:
-Waveshare 4x8 rgb led hat
-Raspberrry pi zero wh
-32gb sd card
-usb cord
-battery pack
+## Hardware list:
+- Waveshare 4x8 RGB LED Hat
+- Raspberry Pi Zero WH
+- 32GB SD card
+- USB cord
+- Battery pack
 
-Assembly:
+## Assembly:
 
-Set up a hotspot on a mobile device with a simple network name and password.
+1. **Set up a hotspot** on a mobile device with a simple network name and password.
 
-Download the img file to setup on a sd card for the raspberrry pi:
-https://mega.nz/file/jCJCXb6D#yqctBnDldJoIEpaP_x5YnqObicx_L_UAUbxd3iVq6C8 is the location of the wheelchair_lights.img for raspberry pi zero
-https://mega.nz/file/vfwjQJyT#CLdrzL3r-ozLoPqEql9SVEQoDTOwOZHmXN2aEqFzBxw is the location of the Wheelchairlights2.img for raspberry pi zero 2
-Unzip the img folder
+2. **Download the image file** to set up on an SD card for the Raspberry Pi:
+   - [wheelchair_lights.img for Raspberry Pi Zero](https://mega.nz/file/jCJCXb6D#yqctBnDldJoIEpaP_x5YnqObicx_L_UAUbxd3iVq6C8)
+   - [Wheelchairlights2.img for Raspberry Pi Zero 2](https://mega.nz/file/vfwjQJyT#CLdrzL3r-ozLoPqEql9SVEQoDTOwOZHmXN2aEqFzBxw)
 
-Use raspberry pi imager software to add the custom OS using the file wheelchair_lights.img, set the Raspberry pi device to Raspberry pi zero (not 2 for this version) Before writing the img to the sd card, edit settings, setup a password for the username, configure the SSID with the network name of the hotspot, click show password and enter the network password. Under services, enable SSH and use password authentication and click yes to apply settings. 
+   **Note**: After downloading the `.zip` file, unzip it to extract the `.img` file.
 
-While the img is writing and verifying to the sd card, attach the rgb led hat to the gpio pins of the raspberry pi zero. 
+3. **Use Raspberry Pi Imager software** to write the custom OS using the `wheelchair_lights.img` file.  
+   Set the Raspberry Pi device to **Raspberry Pi Zero** (not Zero 2 for this version).  
+   Before writing the image to the SD card, edit the following settings:
+   - **Set a password** for the username.
+   - **Configure the SSID** with the network name of the hotspot.
+   - **Enter the hotspot network password** (click "Show password").
+   - **Enable SSH** and choose password authentication (click yes to apply these settings).
 
-When the sd card is finished, insert into the sd slot on the raspberry pi zero and plug into the battery pack. On the mobile device hosting the hotspot go to manage hotspot and see the raspberrypi (or whatever you named the device) to find the ip address. If you select this connection the ip address of the raspberry pi will be in the 192.168.xxx.xxx format. 
+4. While the `.img` is being written and verified to the SD card, **attach the RGB LED Hat** to the GPIO pins of the Raspberry Pi Zero.
 
-In a web browser on your mobile device enter the following url http://192.168.xxx.xxx:5000 replacing the x's for the ip address of the raspberry pi. See wheelchair_lights_control.png example.
+5. After the SD card is finished:
+   - Insert the SD card into the Raspberry Pi Zero.
+   - Plug the Raspberry Pi into the battery pack.
 
-Included are the raw codes for the files app.py and index.html which can be found on the raspberry pi running the project at ~/wheelchair_lights/app.py and ~/wheelchair_lights/templates/index.html 
+6. On the mobile device hosting the hotspot:
+   - Go to **Manage Hotspot** and find the Raspberry Pi (or whatever you named the device) to locate its IP address. The format will be `192.168.xxx.xxx`.
+   - In a web browser on your mobile device, enter the following URL:
+     ```
+     http://192.168.xxx.xxx:5000
+     ```
+     Replace the `xxx` with the actual IP address of the Raspberry Pi.
 
-Included are the stl files for the raspberry pi zero housing and the wheelchair attachment. The wheelchair attachment file is made to fit the back of my wheelchair so it won't fit other thinner backed wheelchairs and the file will need to be modified accordingly.
+7. **Example interface**: See `wheelchair_lights_control.png` for an example of the control page interface.
 
-Safe travels!
+---
+
+## Code Files:
+- The raw code for the project is located on the Raspberry Pi at:
+  - `~/wheelchair_lights/app.py`
+  - `~/wheelchair_lights/templates/index.html`
+  
+You can also find the code on the GitHub repository if needed.
+
+---
+
+## STL Files:
+Included are the STL files for the Raspberry Pi Zero housing and the wheelchair attachment.
+- **Note**: The wheelchair attachment is designed to fit the back of my wheelchair. If your wheelchair has a thinner back, the file may need to be modified.
+
+---
+
+**Safe travels!** 🌟
