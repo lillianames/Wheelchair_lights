@@ -19,7 +19,7 @@ Wheelchair lights that mount to the back of the wheelchair seat.
    **Note**: After downloading the `.zip` file, unzip it to extract the `.img` file.
 
 3. **Use Raspberry Pi Imager software** to write the custom OS using the `wheelchair_lights.img` file.  
-   Set the Raspberry Pi device to **Raspberry Pi Zero** (not Zero 2 for this version).  
+   Set the Raspberry Pi device to **Raspberry Pi Zero** (or Zero 2 for the version Wheelchairlights2.img).  
    Before writing the image to the SD card, edit the following settings:
    - **Set a password** for the username.
    - **Configure the SSID** with the network name of the hotspot.
